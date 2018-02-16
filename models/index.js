@@ -1,5 +1,9 @@
 'use strict'
 
-let models = { }
+let SimilarCodesModel = require('./similarCodes')
+
+let models = {
+  'SimilarCodes': SimilarCodesModel
+}
 
 module.exports = models
