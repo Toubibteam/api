@@ -6,7 +6,7 @@ const defaultConf = {
   PORT: 8040,
   NODE_ENV: 'dev',
   ML_BASE_API: 'http://localhost:8000',
-  MONGODB_URI: 'mongodb://localhost/catalyser_api',
+  MONGODB_URI: 'mongodb://localhost/codes',
 
   /* Computed properties (see below) */
   ML_API: { }
