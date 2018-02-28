@@ -12,6 +12,7 @@ const basic = require('../../utils/basic.js')
         id: (string) user id
         search: (string) search performed
         code: (string) selected code
+        type: (string) type of the selected code
     res: (object)
 
   RETURN:
@@ -19,12 +20,12 @@ const basic = require('../../utils/basic.js')
 */
 const route = (req, res) => {
   let body = req.body
-  if (basic.isUndefined(body.id) || basic.isUndefined(body.search) || basic.isUndefined(body.code)) {
+  if (basic.isUndefined(body.id) || basic.isUndefined(body.search) || basic.isUndefined(body.code) || basic.isUndefined(body.type)) {
     logger.log('error', `${loggerPrefix} missing parameters: `, { 'obj': body })
     return res.sendStatus(400)
   }
 
-  if (basic.isBlank(body.id) || basic.isBlank(body.search) || basic.isBlank(body.code)) {
+  if (basic.isBlank(body.id) || basic.isBlank(body.search) || basic.isBlank(body.code) || basic.isBlank(body.type)) {
     logger.log('error', `${loggerPrefix} invalid parameters: `, { 'obj': body })
     return res.sendStatus(400)
   }
@@ -32,7 +33,8 @@ const route = (req, res) => {
   let props = {
     'userId': body.id,
     'search': body.search,
-    'code': body.code
+    'code': body.code,
+    'type': body.type
   }
 
   let tracker = new TrackerCodeSelection(props)

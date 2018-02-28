@@ -13,6 +13,8 @@ let schema = new Schema({
   'search': { type: String },
   // Code selected
   'code': { type: String },
+  // Type of the code selected
+  'type': { type: String },
   // Date when the event was raised
   'timestamp': { type: Date, default: Date.now }
 })
